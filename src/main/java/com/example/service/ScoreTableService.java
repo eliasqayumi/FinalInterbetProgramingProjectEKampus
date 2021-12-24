@@ -16,15 +16,19 @@ public class ScoreTableService {
     public ScoreTableService(ScoreTableRepo ScoreTableRepo) {
         this.ScoreTableRepo = ScoreTableRepo;
     }
-    public List<ScoreTable> findAllScoreTable(){
+
+    public List<ScoreTable> findAllScoreTable() {
         return ScoreTableRepo.findAll();
     }
-    public ScoreTable addScoreTable(ScoreTable ScoreTable){
+
+    public ScoreTable addScoreTable(ScoreTable ScoreTable) {
         return ScoreTableRepo.save(ScoreTable);
     }
-    public ScoreTable updateScoreTable(ScoreTable ScoreTable){
+
+    public ScoreTable updateScoreTable(ScoreTable ScoreTable) {
         return ScoreTableRepo.save(ScoreTable);
     }
+
     public void deleteScoreTable(String id) {
         ScoreTableRepo.deleteScoreTableById(id);
     }
@@ -32,6 +36,10 @@ public class ScoreTableService {
     public ScoreTable findScoreTableById(String id) {
         return ScoreTableRepo.findScoreTableById(id)
                 .orElseThrow(() -> new NotFoundException("User by id " + id + " was no found"));
+    }
+
+    public List<ScoreTable> findAllScoreTableByStudentId(String id) {
+        return ScoreTableRepo.findAllById_StudentId(id);
     }
 
 }

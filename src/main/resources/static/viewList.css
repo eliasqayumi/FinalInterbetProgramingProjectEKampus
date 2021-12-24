@@ -1,0 +1,69 @@
+body{
+    background: black;
+    color: white;
+}
+.teacherContainer{
+    border: 1px solid red;
+    padding: 1em;
+    width: 80%;
+}
+.pack {
+    /*width: 80%;*/
+    min-height: 50vh;
+    margin: 10px auto;
+    padding: 2em;
+    box-shadow: 0 0 0.2em royalblue;
+    border-radius: 5px;
+
+}
+
+table {
+    border-collapse: collapse;
+    box-shadow: 0 0 0.5em gray;
+    border-radius: 10px;
+    color: white;
+    border-radius: 7px;
+}
+
+th, td {
+    padding: 1em;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:first-child{
+    background: royalblue;
+    color: white;
+}
+.fa{
+    color: green;
+    transition: 300ms;
+}
+.replay{
+    font-size: 1.5em;
+    text-align: right;
+}
+.fa:hover{
+    text-shadow: 0 0 0.2em red;
+}
+td:last-child{
+    text-align: right;
+}
+header .navbar{
+    padding: 0.4em;
+}
+header .navbar a i{
+    position:relative;
+    left: 40px;
+    font-size: 3em;
+}
+header .navbar #logout{
+    top: 30px;
+    position:absolute;
+    right: 30px;
+    padding: .5em 0.8em;
+    border-radius: 5px;
+    box-shadow: 0 0.2em 0.2em 0em white;
+}

@@ -1,32 +1,66 @@
 package com.example.model;
 
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "lesson_taken")
 public class LessonTaken {
-    @EmbeddedId
-    private LessonTakenId id;
+    @Id
+    @Column(name = "id", nullable = false, length = 20)
+    private String id;
 
-    @Column(name = "id", nullable = false, length = 10)
-    private String id1;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "subject_id", nullable = false)
+    private Subject subject;
 
-    public String getId1() {
-        return id1;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "student_id", nullable = false)
+    private Student student;
+
+    @Column(name = "start_date")
+    private LocalDate startDate;
+
+    @Column(name = "finish_date")
+    private LocalDate finishDate;
+
+    public LocalDate getFinishDate() {
+        return finishDate;
     }
 
-    public void setId1(String id1) {
-        this.id1 = id1;
+    public void setFinishDate(LocalDate finishDate) {
+        this.finishDate = finishDate;
     }
 
-    public LessonTakenId getId() {
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public Subject getSubject() {
+        return subject;
+    }
+
+    public void setSubject(Subject subject) {
+        this.subject = subject;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(LessonTakenId id) {
+    public void setId(String id) {
         this.id = id;
     }
 }

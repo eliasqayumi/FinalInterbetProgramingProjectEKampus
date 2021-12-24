@@ -1,0 +1,46 @@
+body{
+    background: black;
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+
+}
+.container{
+    width: 40%;
+    margin:50px auto;
+    box-shadow: 0 0 0.1em 0.1em white;
+    border-radius: 10px;
+    padding: 5em;
+}
+.addInput{
+    background: none;
+    color: white;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 0.1em 0.1em purple;
+    padding: 1em;
+    font-size: 1.2em;
+}
+.button{
+    background: none;
+    color: white;
+    margin: 20px auto;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 0.1em 0.1em royalblue;
+    padding: 1em;
+    font-size: 1em;
+    transition: 300ms;
+}
+form{
+    width: 90%;
+    margin: auto;
+    padding: 2em;
+}
+.inputButton{
+    padding: 2em 5em;
+}
+.inputButton .button:hover{
+    box-shadow: 0 0 0.3em 0.1em purple;
+}

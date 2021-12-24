@@ -16,22 +16,30 @@ public class DepartmentService {
     public DepartmentService(DepartmentRepo DepartmentRepo) {
         this.departmentRepo = DepartmentRepo;
     }
-    public List<Department> findAllDepartment(){
+
+    public List<Department> findAllDepartment() {
         return departmentRepo.findAll();
     }
-    public Department addDepartment(Department Department){
+
+    public Department addDepartment(Department Department) {
         return departmentRepo.save(Department);
     }
-    public Department updateDepartment(Department Department){
+
+    public Department updateDepartment(Department Department) {
         return departmentRepo.save(Department);
     }
+
     public void deleteDepartment(String id) {
         departmentRepo.deleteDepartmentById(id);
     }
 
     public Department findDepartmentById(String id) {
         return departmentRepo.findDepartmentById(id)
-                .orElseThrow(() -> new NotFoundException("User by id " + id + " was no found"));
+                .orElseThrow(() -> new NotFoundException("Department by id " + id + " was no found"));
+    }
+    public Department findDepartmentByDepartmentName(String departmentName) {
+        return departmentRepo.findDepartmentByDepartmentName(departmentName)
+                .orElseThrow(() -> new NotFoundException("Department by id " + departmentName + " was no found"));
     }
 
 }

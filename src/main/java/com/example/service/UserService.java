@@ -34,7 +34,10 @@ public class UserService {
 
 
     public void deleteUser(String id) {
-        userRepo.deleteUserById(id);
+        userRepo.deleteById(id);
+    }
+    public User findUserByUserEmail(String email){
+        return userRepo.findUserByUserEmail(email).orElseThrow(()->new NotFoundException("User By Email "+email+ " was not found"));
     }
 
 

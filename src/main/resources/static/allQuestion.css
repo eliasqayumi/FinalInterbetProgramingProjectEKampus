@@ -1,0 +1,110 @@
+body{
+    background: black;
+    color: white;
+}
+.container{
+    width: 80%;
+    margin: 50px auto;
+    box-shadow: 0 0 0.2em 0.1em white;
+    border-radius: 10px;
+    padding: 1em;
+}
+.pack {
+    width: 97%;
+    margin: auto;
+    padding: 1em;
+    box-shadow: 0 0 0.2em royalblue;
+    border-radius: 5px;
+
+}
+.bTable{
+    width: 100%;
+    margin: auto;
+}
+.rTable {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 0 0.5em gray;
+    border-radius: 10px;
+    color: white;
+}
+
+th, td {
+    padding: 1em;
+}
+
+.bTable tr{
+    width: 100%;
+}
+
+.updateButton{
+    border-radius: 7px;
+    box-shadow: 0 0 0.3em purple;
+    color: white;
+    padding: 1em;
+    text-decoration: none;
+    transition: 250ms;
+}
+
+.updateButton:hover{
+    box-shadow: 0 0 0.3em white;
+}
+
+.header{
+    padding: 2em;
+}
+.addButton{
+    border-radius: 7px;
+    box-shadow: 0 0 0.2em 0.1em royalblue;
+    color: white;
+    padding: 2em;
+    text-decoration: none;
+    position: absolute;
+    right: 10%;
+    top: 10px;
+    transition: 300ms;
+}
+.addButton:hover{
+    box-shadow: 0 0 0.2em 0.1em purple;
+}
+.contain{
+    width: 80%;
+    box-shadow: 0 0 0.2em 0.2em white;
+    margin:50px auto;
+    padding: 3em;
+    border-radius: 10px;
+}
+
+textarea{
+    resize: none;
+    width: 100%;
+    height: 10vh;
+    margin: 5px auto 15px auto;
+    border-radius: 5px;
+    padding: 1em;
+    background: none;
+    box-shadow: 0 0 0.1em 0.1em white;
+    color: white;
+}
+
+.answers{
+    padding: 2em;
+    width: 95%;
+    margin: auto;
+    border-radius: 7px;
+    box-shadow: 0 0 0.2em 0.2em purple;
+}
+.addQuestionBttn{
+    background: none;
+    border-radius: 5px;
+    color: white;
+    width: 100%;
+    border: none;
+    padding: 1em;
+    font-size: 1em;
+    box-shadow: 0 0 0.2em 0.2em red;
+}
+.buttons{
+    padding: 7em 3em;
+    display: grid;
+}

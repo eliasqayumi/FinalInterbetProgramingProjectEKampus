@@ -28,8 +28,15 @@ public class SubjectTeachService {
     public SubjectTeach updateSubjectTeach(SubjectTeach subjectTeach) {
         return subjectTeachRepo.save(subjectTeach);
     }
-    public SubjectTeach findSubjectTeachById(String id) {
-        return subjectTeachRepo.findSubjectTeachById(id).orElseThrow(() -> new NotFoundException("SubjectTeach by id " + id + " was no found"));
+    public SubjectTeach findSubjectTeachById1(String id) {
+        return subjectTeachRepo.findSubjectTeachById_Id(id).orElseThrow(() -> new NotFoundException("SubjectTeach by id " + id + " was no found"));
+    }
+
+    public SubjectTeach findSubjectTeachById_TeacherID(String id) {
+        return subjectTeachRepo.findSubjectTeachById_TeacherId(id).orElseThrow(() -> new NotFoundException("SubjectTeach by id " + id + " was no found"));
+    }
+    public List<SubjectTeach> findAllSubjectTeachByTeacherId(String id){
+        return subjectTeachRepo.findAllById_TeacherId(id);
     }
 
     public void deleteSubjectTeach(String id) {

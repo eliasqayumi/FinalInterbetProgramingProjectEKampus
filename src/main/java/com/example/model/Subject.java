@@ -19,6 +19,15 @@ public class Subject {
     @Column(name = "subject_credit", nullable = false, length = 45)
     private String subjectCredit;
 
+    public Subject(String id, String subjectName, String subjectCredit) {
+        this.id = id;
+        this.subjectName = subjectName;
+        this.subjectCredit = subjectCredit;
+    }
+
+    public Subject() {
+    }
+
     public String getSubjectCredit() {
         return subjectCredit;
     }

@@ -1,0 +1,72 @@
+body{
+    background: black;
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+}
+.container{
+    width: 40%;
+    margin:50px auto;
+    box-shadow: 0 0 0.1em 0.1em white;
+    border-radius: 10px;
+    padding: 5em;
+}
+form{
+    padding: 1em;
+}
+.teacherInput{
+    background: none;
+    color: white;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 0.1em 0.1em royalblue;
+    padding: 0.6em;
+    font-size: 1.05em;
+    margin: 1em auto;
+}
+.datePicker{
+    width: 80%;
+    padding: .5em;
+    font-size: 1em;
+    box-shadow: 0 0 0.1em 0.1em royalblue;
+    border: none;
+    border-radius: 5px;
+    margin-left: 2em;
+}
+#department{
+    width: 100%;
+    padding: .5em;
+    box-shadow: 0 0 0.1em 0.1em royalblue;
+    background: none;
+    color: white;
+    border: none;
+    font-size: 1em;
+    border-radius: 5px;
+}
+.button{
+    background: none;
+    color: white;
+    margin: 20px auto;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 0.1em 0.1em royalblue;
+    padding: 1em;
+    font-size: 1em;
+}
+.navbar{
+    padding: 0.4em;
+}
+a i{
+    position:relative;
+    left: 40px;
+    font-size: 3em;
+}
+.navbar #logout{
+    top: 30px;
+    position:absolute;
+    right: 30px;
+    padding: .5em 0.8em;
+    border-radius: 5px;
+    box-shadow: 0 0.2em 0.2em 0em white;
+}

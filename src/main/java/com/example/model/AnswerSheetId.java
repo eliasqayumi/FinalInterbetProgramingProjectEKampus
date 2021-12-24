@@ -56,4 +56,13 @@ public class AnswerSheetId implements Serializable {
                 Objects.equals(this.answerId, entity.answerId) &&
                 Objects.equals(this.questionId, entity.questionId);
     }
+
+    @Override
+    public String toString() {
+        return "AnswerSheetId{" +
+                "studentId='" + studentId + '\'' +
+                ", questionId='" + questionId + '\'' +
+                ", answerId='" + answerId + '\'' +
+                '}';
+    }
 }

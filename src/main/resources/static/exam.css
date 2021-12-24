@@ -1,0 +1,45 @@
+body {
+    background: black;
+    color: white;
+}
+
+.contain {
+    width: 80%;
+    box-shadow: 0 0 0.1em 0.1em white;
+    margin: 50px auto;
+    border-radius: 10px;
+    padding: 3em;
+}
+
+
+.questionAnswer {
+    box-shadow: 0 0 0.1em 0.1em purple;
+    padding: 2em;
+    margin: 1em 0 1em auto;
+    border-radius: 5px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.answerList{
+    margin: 1.2em auto;
+}
+#submit{
+    width: 100%;
+    margin: auto;
+    padding: 1em;
+    font-size: 1em;
+    background: none;
+    box-shadow: 0 0 0.2em 0.1em red;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    transition: 250ms;
+}
+#submit:hover{
+    box-shadow: 0 0 0.3em 0.1em green;
+
+}

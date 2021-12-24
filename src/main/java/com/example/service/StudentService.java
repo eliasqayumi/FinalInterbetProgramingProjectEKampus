@@ -33,9 +33,11 @@ public class StudentService {
 
     public Student findStudentById(String id) {
         return studentRepo.findStudentByStudentId(id)
-                .orElseThrow(() -> new NotFoundException("User by id " + id + " was no found"));
+                .orElseThrow(() -> new NotFoundException("Student by id " + id + " not found"));
     }
-
+    public Student findStudentByStudentEmail(String email){
+        return studentRepo.findStudentByStudentEmail(email).orElseThrow(()-> new NotFoundException("Student by Email "+email+" not found"));
+    }
     public void deleteStudent(String id) {
         studentRepo.deleteStudentByStudentId(id);
     }

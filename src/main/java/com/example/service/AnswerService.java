@@ -2,6 +2,7 @@ package com.example.service;
 
 import com.example.exception.NotFoundException;
 import com.example.model.Answer;
+import com.example.model.Question;
 import com.example.repo.AnswerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,9 @@ public class AnswerService {
     public Answer findAnswerById(String id) {
         return answerRepo.findAnswerById(id)
                 .orElseThrow(() -> new NotFoundException("User by id " + id + " was no found"));
+    }
+    public List<Answer> findAllAnswerByQuestionId(Question question){
+        return  answerRepo.findAllAnswerByQuestion(question);
     }
 
 }

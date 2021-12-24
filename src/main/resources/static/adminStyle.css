@@ -1,0 +1,74 @@
+*{
+  background: black;
+  color: white;
+  font-family: 'Rajdhani', sans-serif;
+}
+header .navbar{
+  padding: 0.4em;
+}
+header .navbar a i{
+  position:relative;
+  left: 40px;
+  font-size: 3em;
+}
+header .navbar #logout{
+  top: 30px;
+  position:absolute;
+  right: 30px;
+  padding: .5em 0.8em;
+  border-radius: 5px;
+  box-shadow: 0 0.2em 0.2em 0em white;
+}
+.body{
+  width: 70%;
+  margin: 0px auto;
+  padding: .5em 1em;
+  border-radius: 10px;
+  box-shadow: 0 0 0.1em 0.2em white;
+}
+.body ul{
+  padding: 0;
+  list-style: none;
+
+}
+.body ul .panel-column{
+  display: flex;
+}
+
+.panel-column li{
+  width: 33.33%;
+  text-align: center;
+}
+a{
+  text-decoration: none;
+
+}
+.panel-column li a{
+  height: 220px;
+  padding: 1em;
+  display: grid;
+  font-style: normal;
+  margin: 0.3em;
+  border-radius: 10px;
+  transition: 300ms;
+}
+.panel-column li a:hover{
+  box-shadow: 0 0.2em 0 0 purple;
+}
+
+.panel-column li a i{
+  font-size: 5em;
+  background: none;
+}
+.panel-column li a span{
+  font-size: 2em;
+  background: none;
+
+}
+header .navbar #logout:hover {
+ box-shadow: 0 0.3em 0.2em 0 purple;
+}
+svg{
+  position: absolute;
+  bottom: 0;
+}

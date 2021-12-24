@@ -29,12 +29,15 @@ public class TeacherService {
         return teacherRepo.save(teacher);
     }
     public Teacher findTeacherById(String id) {
-        return teacherRepo.findTeacherById(id).orElseThrow(() -> new NotFoundException("User by id " + id + " was no found"));
+        return teacherRepo.findTeacherById(id).orElseThrow(() -> new NotFoundException("Teacher by id " + id + " was no found"));
     }
 
 
-    public void deleteTeacher(String id) {
+    public void deleteTeacherById(String id) {
         teacherRepo.deleteTeacherById(id);
+    }
+    public Teacher findTeacherByEmail(String email){
+        return teacherRepo.findTeacherByTeacherEmail(email).orElseThrow(() -> new NotFoundException("Teacher by id " + email + " was no found"));
     }
 
 }

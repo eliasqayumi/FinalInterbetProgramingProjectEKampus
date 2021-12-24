@@ -1,5 +1,7 @@
 package com.example.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -16,5 +18,12 @@ public class AnswerSheet {
 
     public void setId(AnswerSheetId id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "AnswerSheet{" +
+                "id=" + id +
+                '}';
     }
 }

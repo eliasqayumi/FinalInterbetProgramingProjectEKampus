@@ -16,15 +16,19 @@ public class QuestionService {
     public QuestionService(QuestionRepo QuestionRepo) {
         this.questionRepo = QuestionRepo;
     }
-    public List<Question> findAllQuestion(){
+
+    public List<Question> findAllQuestion() {
         return questionRepo.findAll();
     }
-    public Question addQuestion(Question Question){
+
+    public Question addQuestion(Question Question) {
         return questionRepo.save(Question);
     }
-    public Question updateQuestion(Question Question){
+
+    public Question updateQuestion(Question Question) {
         return questionRepo.save(Question);
     }
+
     public void deleteQuestion(String id) {
         questionRepo.deleteQuestionById(id);
     }
@@ -34,4 +38,11 @@ public class QuestionService {
                 .orElseThrow(() -> new NotFoundException("User by id " + id + " was no found"));
     }
 
+    public List<Question> findAllQuestionBySubjectID(String id) {
+        return questionRepo.findAllBySubject_Id(id);
+    }
+
+    public List<Question> findAllBySubjectIdAndTerm(String subjectId, String term) {
+        return questionRepo.findAllBySubject_IdAndTerm(subjectId, term);
+    }
 }
