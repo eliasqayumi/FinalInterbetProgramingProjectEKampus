@@ -1,0 +1,107 @@
+*{
+    background-color: darkgoldenrod;
+    color: white;
+}
+body{
+    width: 100%;
+}
+.container{
+    padding: 1em;
+    min-height: 50vh;
+    width: 25%;
+    position: fixed;
+    right: 50px;
+    top: 100px;
+    border-radius: 5px;
+    box-shadow: 0 0 0.5em .2em white;
+}
+form{
+    text-align: center;
+    display: grid;
+    padding: 0 1em 1em 1em;
+}
+img{
+    margin: auto;
+    width: 150px;
+    height: 150px;
+
+}
+.inputs{
+    padding: .6em;
+    margin: 1em;
+    border: none;
+    font-size: 1em;
+    transition: 300ms;
+    background: none;
+    border-radius: 5px;
+}
+hr{
+    width: 100%;
+}
+.footerOfForm{
+    display: flex;
+}
+.button{
+    margin: 1em;
+    height: 5vh;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 0.1em white;
+    transition: 300ms
+}
+a{
+    margin-left: 30%;
+    transition: 300ms;
+}
+
+.inputs:hover{
+    box-shadow: 0 0.1em 0 purple;
+}
+.button:hover{
+    box-shadow: 0 0 0em .2em purple;
+}
+#checkbox:hover{
+    transition: 300ms;
+    box-shadow: 0 0 1em .2em white;
+}
+a:hover{
+    color: royalblue;
+}
+
+@media (max-width: 1300px) {
+    .container{
+        width: 30%;
+    }
+}
+@media (max-width: 1200px) {
+    .container{
+        width: 32%;
+    }
+}@media (max-width: 1100px) {
+    .container{
+        width: 35%;
+    }
+}@media (max-width: 1000px) {
+    .container{
+        width: 38%;
+    }
+}@media (max-width: 900px) {
+    .container{
+        width: 40%;
+    }
+}@media (max-width: 800px) {
+    .container{
+        width: 45%;
+    }
+}
+@media (max-width: 700px) {
+    .container{
+        width: 50%;
+    }
+}
+
+@media (max-width: 600px) {
+    .container{
+        width: 60%;
+    }
+}

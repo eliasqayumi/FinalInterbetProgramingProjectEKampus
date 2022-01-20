@@ -24,42 +24,42 @@
     <a id="add" href="/student/add">Add new Student</a>
     <div class="container">
         <div class="pack">
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Surname</th>
-                <th>T.C.No</th>
-                <th>Email</th>
-                <th>Contact</th>
-                <th>Address</th>
-                <th>Image</th>
-                <th>Department</th>
-                <th>Enrol Date</th>
-                <th>Action</th>
-            </tr>
-            <c:forEach var="student" items="${students}">
+            <table>
                 <tr>
-                    <td>${student.studentId}</td>
-                    <td>${student.studentName}</td>
-                    <td>${student.studentSurname}</td>
-                    <td>${student.studentTcNo}</td>
-                    <td>${student.studentEmail}</td>
-                    <td>${student.studentPhoneNo}</td>
-                    <td>${student.studentAddress}</td>
-                    <td>${student.studentImageURL}</td>
-                    <c:forEach var="studentInfo" items="${studentInfos}">
-                        <c:if test="${student.studentId==studentInfo.id}">
-                            <td>${studentInfo.department.departmentName}</td>
-                            <td>${studentInfo.enrolDate}</td>
-                        </c:if>
-                    </c:forEach>
-                    <td><a href="/student/edit/${student.studentId}" class="replay">Update</a></td>
-                        <%--                    <a href="/teacher/delete/${teacher.id}" class="replay">Delete</a>--%>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>T.C.No</th>
+                    <th>Email</th>
+                    <th>Contact</th>
+                    <th>Address</th>
+                    <th>Image</th>
+                    <th>Department</th>
+                    <th>Enrol Date</th>
+                    <th>Action</th>
                 </tr>
-            </c:forEach>
-        </table>
-    </div>
+                <c:forEach var="student" items="${students}">
+                    <tr>
+                        <td>${student.studentId}</td>
+                        <td>${student.studentName}</td>
+                        <td>${student.studentSurname}</td>
+                        <td>${student.studentTcNo}</td>
+                        <td>${student.studentEmail}</td>
+                        <td>${student.studentPhoneNo}</td>
+                        <td>${student.studentAddress}</td>
+                        <td>${student.studentImageURL}</td>
+                        <c:forEach var="studentInfo" items="${studentInfos}">
+                            <c:if test="${student.studentId==studentInfo.id}">
+                                <td>${studentInfo.department.departmentName}</td>
+                                <td>${studentInfo.enrolDate}</td>
+                            </c:if>
+                        </c:forEach>
+                        <td><a href="/student/edit/${student.studentId}" class="replay">Update</a></td>
+                            <%--                    <a href="/teacher/delete/${teacher.id}" class="replay">Delete</a>--%>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
     </div>
 </div>
 

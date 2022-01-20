@@ -1,6 +1,5 @@
 package com.example.repo;
 
-import com.example.model.Answer;
 import com.example.model.StudentInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 
