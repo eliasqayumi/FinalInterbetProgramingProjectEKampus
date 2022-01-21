@@ -34,7 +34,7 @@ public class TeacherService {
 
 
     public void deleteTeacherById(String id) {
-        teacherRepo.deleteTeacherById(id);
+        teacherRepo.deleteById(id);
     }
     public Teacher findTeacherByEmail(String email){
         return teacherRepo.findTeacherByTeacherEmail(email).orElseThrow(() -> new NotFoundException("Teacher by id " + email + " was no found"));

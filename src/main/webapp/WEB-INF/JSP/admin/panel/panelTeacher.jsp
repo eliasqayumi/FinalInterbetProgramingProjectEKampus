@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="<c:url value="/teachers.css"/>">
 </head>
 <body>
+<a href="/admins">Home</a>
 <header>
     <div class="navbar">
         <a href="/admins">

@@ -114,8 +114,24 @@ header {
     border-radius: 5px;
     transition: 300ms;
 }
+#subjectTeachBy{
+    position: fixed;
+    text-align: center;
+    width: 82%;
+    margin-left: 20px;
+    margin-top: 50px;
+    padding: 1em;
+    text-decoration: none;
+    color: #f2f2f2;
+    box-shadow: 0 0 0.1em 0.1em royalblue;
+    border-radius: 5px;
+    transition: 300ms;
+}
 
 #add:hover {
+    box-shadow: 0 0 0.3em 0.1em purple;
+}
+#subjectTeachBy:hover {
     box-shadow: 0 0 0.3em 0.1em purple;
 }
 

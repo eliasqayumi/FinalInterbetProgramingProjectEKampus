@@ -1,0 +1,82 @@
+*{
+    background: darkgoldenrod;
+}
+
+header .navbar{
+    padding: 0.4em;
+}
+
+header .navbar a i{
+    position:relative;
+    left: 40px;
+    font-size: 3em;
+}
+
+header .navbar #logout{
+    top: 30px;
+    position:absolute;
+    padding: 2em 1em;
+    right: 30px;
+    color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 0.2em 0em white;
+}
+
+.body{
+    width: 70%;
+    margin: 0px auto;
+    padding: .5em 1em;
+    border-radius: 10px;
+}
+
+.body ul{
+    padding: 0;
+    list-style: none;
+}
+
+.body ul .panel-column{
+    display: flex;
+}
+
+.panel-column li{
+    width: 33.33%;
+    text-align: center;
+}
+a{
+    text-decoration: none;
+}
+
+.panel-column li a{
+    height: 270px;
+    padding: 1em;
+    display: grid;
+    font-style: normal;
+    margin: 0.7em;
+    border-radius: 50%;
+    color: white;
+    box-shadow: 0 0 0.2em white, inset 0 -0.6em 1em -0.35em rgba(186, 160, 105, 0.1), inset 0 0.6em 2em -0.3em rgba(255, 255, 255, 0.15), inset 0 0 0em 0.05em rgba(255, 255, 255, 0.12);
+    transition: 300ms;
+}
+
+.panel-column li a:hover{
+    box-shadow: 0 0 0.2em 0.1em white;
+}
+
+.panel-column li a i{
+    font-size: 5em;
+    background: none;
+}
+
+.panel-column li a span{
+    font-size: 2em;
+    background: none;
+}
+
+header .navbar #logout:hover {
+    box-shadow: 0 0 0.3em 0.1em white;
+}
+
+svg{
+    position: absolute;
+    bottom: 0;
+}

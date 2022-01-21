@@ -13,6 +13,7 @@
           integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 <body>
+<a href="/admins">Home</a>
 <div class="container">
     <form  action="/subject/teachBy/add"><br>
         <h3>Select Subject</h3>

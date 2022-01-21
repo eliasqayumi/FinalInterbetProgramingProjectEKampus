@@ -5,7 +5,7 @@
 <html>
 <head>
     <title>Update User</title>
-    <link rel="stylesheet" href="<c:url value="/update.css"/>">
+    <link rel="stylesheet" href="<c:url value="/updateUser.css"/>">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,23 +14,28 @@
           integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 <body>
+<a href="/admins">Home</a>
 <div class="container">
-
-    <form:form modelAttribute="user" action="/user/${user.id}"><br>
+    <form:form modelAttribute="user" action="/user/update/${user.id}"><br>
+        <label for="id">Id</label>
         <form:input cssClass="userInput" path="id" placeholder="user ID" required="true"/> <br/>
-        <form:errors path="id"/>
+        <label for="userFullName">FullName</label>
         <form:input cssClass="userInput" path="userFullName" placeholder="FirstName" required="true"/> <br/>
-        <form:errors path="userFullName"/>
+        <label for="userPassword">Password</label>
         <form:input cssClass="userInput" path="userPassword" placeholder="Surname" required="true"/><br/>
-        <form:errors path="userPassword"/>
-        <h3>User Role</h3>
-        <select name="userRole" id="userRole">
-            <option value="Admin" <c:if test="${user.userRole.equalsIgnoreCase(admin)}">${"selected"}</c:if>>Admin</option>
-            <option value="Teacher" <c:if test="${user.userRole.equalsIgnoreCase(teacher)}">${"selected"}</c:if>>Teacher</option>
-            <option value="Student" <c:if test="${user.userRole.equalsIgnoreCase(student)}">${"selected"}</c:if>>Student</option>
+        <label for="userRole">Role</label>
+        <select class="userInput" name="userRole" id="userRole">
+            <option value="Admin" <c:if test="${user.userRole.equalsIgnoreCase(admin)}">${"selected"}</c:if>>Admin
+            </option>
+            <option value="Teacher" <c:if test="${user.userRole.equalsIgnoreCase(teacher)}">${"selected"}</c:if>>
+                Teacher
+            </option>
+            <option value="Student" <c:if test="${user.userRole.equalsIgnoreCase(student)}">${"selected"}</c:if>>
+                Student
+            </option>
         </select>
+        <label for="userEmail">Email</label>
         <form:input cssClass="userInput" path="userEmail" placeholder="example@mail.com" required="true"/><br/>
-        <form:errors cssClass="userInput" path="userEmail"/>
         <input class="button" type="submit" value="Submit" name="submit"/>
     </form:form>
 </div>

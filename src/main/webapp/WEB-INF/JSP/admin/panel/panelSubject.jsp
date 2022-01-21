@@ -4,9 +4,10 @@
 <html>
 <head>
     <title>Subject Panel</title>
-        <link rel="stylesheet" href="<c:url value="/viewAll.css"/>">
+        <link rel="stylesheet" href="<c:url value="/subjectsPanel.css"/>">
 </head>
 <body>
+<a href="/admins">Home</a>
 <header>
     <div class="navbar">
         <a href="/admins">
@@ -15,9 +16,7 @@
         <a id="logout" href="/">Log out</a>
     </div>
 </header>
-<a id="subjectTeachBy" href="/subject/teachBy">Subjects Teach By</a>
 <div class="package">
-    <a id="add" href="/subject/add">Add new Subject</a>
     <div class="container">
         <div class="pack">
             <table>
@@ -33,11 +32,14 @@
                         <td>${subject.subjectName}</td>
                         <td>${subject.subjectCredit}</td>
 
-                        <td><a href="/subject/edit/${subject.id}" class="replay">Update</a></td>
-                            <%--                    <a href="/teacher/delete/${teacher.id}" class="replay">Delete</a>--%>
+                        <td><a id="update" href="/subject/edit/${subject.id}" class="replay">Update</a>
+                            <a id="delete" href="/subject/delete/${subject.id}" class="replay">Delete</a></td>
                     </tr>
                 </c:forEach>
             </table>
+            <a id="add" href="/subject/add">Add new Subject</a><br>
+            <a id="subjectTeachBy" href="/subject/teachBy">Subjects Teach By</a>
+
         </div>
     </div>
 </div>

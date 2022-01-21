@@ -5,7 +5,7 @@
 <html>
 <head>
     <title>Add New LessonTaken</title>
-    <link rel="stylesheet" href="<c:url value="/addNewSubjectTeachBy.css"/> ">
+    <link rel="stylesheet" href="<c:url value="/programi.css"/> ">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
@@ -13,8 +13,9 @@
           integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 <body>
+<a href="/admins">Home</a>
 <div class="container">
-    <form action="/lessonTaken/update/${lessonTaken.id}" method="post">
+    <form action="/programs/update/${lessonTaken.id}" method="post">
         <h3>Select Subject</h3>
         <select name="subject" id="subject" class="lessonTakers">
             <c:forEach var="subject" items="${subjects}">
@@ -36,14 +37,12 @@
                 </option>
             </c:forEach>
         </select><br>
-
         <label for="startDate">Start Date</label>
         <input class="datePicker" type="date" value="${lessonTaken.startDate}" name="startDate" id="startDate"
                required/><br>
         <label for="finishDate">finish Date</label>
         <input class="datePicker" type="date" value="${lessonTaken.finishDate}" name="finishDate" id="finishDate"
                required/><br>
-
         <input class="button" type="submit" value="Update" name="submit"/>
     </form>
 </div>

@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>Department Panel</title>
-    <link rel="stylesheet" href="<c:url value="/viewAll.css"/>">
+    <link rel="stylesheet" href="<c:url value="/panelDepartment.css"/>">
 
 </head>
 <body>
@@ -16,6 +16,7 @@
         <a id="logout" href="/">Log out</a>
     </div>
 </header>
+<a href="/admins">Home</a>
 <div class="package">
     <div class="container">
         <div class="pack">
@@ -30,7 +31,7 @@
                         <td>${department.id}</td>
                         <td>${department.departmentName}</td>
                         <td><a id="update" href="/department/edit/${department.id}" class="replay">Update</a>
-                        <a  id="delete" href="/department/edit/${department.id}" class="replay">Delete</a></td>
+                        <a id="delete" href="/department/delete/${department.id}" class="replay">Delete</a></td>
                     </tr>
                 </c:forEach>
             </table>

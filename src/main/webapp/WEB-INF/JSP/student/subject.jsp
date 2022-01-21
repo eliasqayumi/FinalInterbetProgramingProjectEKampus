@@ -14,9 +14,7 @@
 <body>
 <header>
     <div class="navbar">
-        <a href="/students">
-            <i class="fas fa-university"></i>
-        </a>
+        <a href=""></a>
         <a id="logout" href="/">Log out</a>
     </div>
 </header>
@@ -29,17 +27,13 @@
                     <th>Subject Name</th>
                     <th>Subject Credit</th>
                 </tr>
-                <c:forEach var="lessonTake" items="${lessonTakes}">
                     <tr>
                         <c:forEach var="subject" items="${subjects}">
-                            <c:if test="${lessonTake.subject.id==subject.id}">
                                 <td>${subject.id}</td>
                                 <td>${subject.subjectName}</td>
                                 <td>${subject.subjectCredit}</td>
-                            </c:if>
                         </c:forEach>
                     </tr>
-                </c:forEach>
             </table>
         </div>
     </div>

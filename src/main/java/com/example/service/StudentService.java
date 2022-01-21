@@ -39,7 +39,7 @@ public class StudentService {
         return studentRepo.findStudentByStudentEmail(email).orElseThrow(()-> new NotFoundException("Student by Email "+email+" not found"));
     }
     public void deleteStudent(String id) {
-        studentRepo.deleteStudentByStudentId(id);
+        studentRepo.deleteById(id);
     }
 
 }

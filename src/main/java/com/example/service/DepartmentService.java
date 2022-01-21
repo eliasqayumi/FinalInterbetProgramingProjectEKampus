@@ -11,8 +11,6 @@ import java.util.List;
 @Service
 public class DepartmentService {
     private DepartmentRepo departmentRepo;
-
-    @Autowired
     public DepartmentService(DepartmentRepo DepartmentRepo) {
         this.departmentRepo = DepartmentRepo;
     }
@@ -30,7 +28,7 @@ public class DepartmentService {
     }
 
     public void deleteDepartment(String id) {
-        departmentRepo.deleteDepartmentById(id);
+        departmentRepo.deleteById(id);
     }
 
     public Department findDepartmentById(String id) {

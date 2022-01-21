@@ -5,7 +5,7 @@
 <html>
 <head>
     <title>Add New LessonTaken</title>
-    <link rel="stylesheet" href="<c:url value="/addNewSubjectTeachBy.css"/> ">
+    <link rel="stylesheet" href="<c:url value="/programi.css"/> ">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
@@ -13,6 +13,7 @@
           integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 <body>
+<a href="/admins">Home</a>
 <div class="container">
     <form  action="/lessonTaken/add"><br>
         <h3>Select Subject</h3>
@@ -28,9 +29,9 @@
             </c:forEach>
         </select><br>
         <label for="startDate">Start Date</label>
-        <input class="datePicker" type="date" name="startDate" id="startDate" required><br>
+        <input class="lessonTakers" type="date" name="startDate" id="startDate" required><br>
         <label for="finishDate">finish Date</label>
-        <input class="datePicker" type="date" name="finishDate" id="finishDate" required><br>
+        <input class="lessonTakers" type="date" name="finishDate" id="finishDate" required><br>
         <input class="button" type="submit" value="Submit" name="submit"/>
     </form>
 </div>

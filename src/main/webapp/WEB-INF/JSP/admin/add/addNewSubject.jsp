@@ -5,7 +5,7 @@
 <html>
 <head>
     <title>Add New Subject</title>
-    <link rel="stylesheet" href="<c:url value="/subject.css"/>">
+    <link rel="stylesheet" href="<c:url value="/updateSubject.css"/>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
@@ -13,6 +13,7 @@
           integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 <body>
+<a href="/admins">Home</a>
 <div class="container">
     <form:form modelAttribute="subject" action="/subject/add"><br>
         <label for="subjectName"> Subject Name</label>

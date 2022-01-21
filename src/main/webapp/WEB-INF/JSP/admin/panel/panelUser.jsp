@@ -4,10 +4,11 @@
 <html>
 <head>
     <title>User Panel</title>
-    <link rel="stylesheet" href="<c:url value="/viewAll.css"/>">
+    <link rel="stylesheet" href="<c:url value="/panelUser.css"/>">
 
 </head>
 <body>
+<a href="/admins">Home</a>
 <header>
     <div class="navbar">
         <a href="/admins">
@@ -17,7 +18,6 @@
     </div>
 </header>
 <div class="package">
-    <a id="add" href="/user/add">Add new User</a>
     <div class="container">
         <div class="pack">
             <table>
@@ -36,12 +36,13 @@
                         <td>${user.userPassword}</td>
                         <td>${user.userRole}</td>
                         <td>${user.userEmail}</td>
-                        <td><a href="/user/update/${user.id}" class="replay">Update</a>
-                            <a href="/user/delete/${user.id}" class="replay">Delete</a>
+                        <td><a id="update" href="/user/edit/${user.id}" class="replay">Update</a>
+                            <a id="delete" href="/user/delete/${user.id}" class="replay">Delete</a>
                         </td>
                     </tr>
                 </c:forEach>
             </table>
+            <a id="add" href="/user/add">Add new User</a>
         </div>
     </div>
 </div>

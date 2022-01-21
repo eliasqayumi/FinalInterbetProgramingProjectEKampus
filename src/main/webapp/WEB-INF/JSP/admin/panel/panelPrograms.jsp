@@ -8,9 +8,10 @@
 <html>
 <head>
     <title>Lesson Takes By Panel</title>
-    <link rel="stylesheet" href="<c:url value="/viewAll.css"/>">
+    <link rel="stylesheet" href="<c:url value="/panelProgram.css"/>">
 </head>
 <body>
+<a href="/admins">Home</a>
 <script src="deleteFunction.js"></script>
 <header>
     <div class="navbar">
@@ -21,7 +22,6 @@
     </div>
 </header>
 <div class="package">
-    <a id="add" href="/lessonTaken/add">Add new Lesson Takes</a>
     <div class="container">
         <div class="pack">
             <table>
@@ -58,12 +58,13 @@
                         </c:forEach>
                         <td>${lessonTaken.startDate}</td>
                         <td>${lessonTaken.finishDate}</td>
-                        <td><a href="/lessonTaken/edit/${lessonTaken.id}" class="replay">Update</a>
-                            <a onclick="myFunction()" href="/lessonTaken/delete/${lessonTaken.id}" class="replay">Delete</a>
+                        <td><a id="update" href="/programs/edit/${lessonTaken.id}" class="replay">Update</a>
+                            <a id="delete" href="/programs/delete/${lessonTaken.id}" class="replay">Delete</a>
                         </td>
                     </tr>
                 </c:forEach>
             </table>
+            <a id="add" href="/programs/add">Add new Lesson Takes</a>
         </div>
     </div>
 </div>

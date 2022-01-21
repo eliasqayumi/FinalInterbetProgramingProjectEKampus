@@ -32,7 +32,7 @@ public class SubjectService {
         return subjectRepo.findSubjectById(id).orElseThrow(() -> new NotFoundException("Subject by id " + id + " was no found"));
     }
     public void deleteSubject(String id) {
-        subjectRepo.deleteSubjectById(id);
+        subjectRepo.deleteById(id);
     }
 
     

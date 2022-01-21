@@ -87,34 +87,34 @@ public class ApplicationController {
 
     @RequestMapping("/admins")
     public String adminPanel(@ModelAttribute("user") User user, HttpServletRequest request) {
-        User user1 = (User) request.getSession().getAttribute("user");
-        if (user1 == null || !user1.getUserRole().equalsIgnoreCase("admin"))
-            return "redirect:/";
+//        User user1 = (User) request.getSession().getAttribute("user");
+//        if (user1 == null || !user1.getUserRole().equalsIgnoreCase("admin"))
+//            return "redirect:/";
         return "admin/add/admin";
     }
 
     @RequestMapping("/teachers")
     public String teacherPanel(@ModelAttribute("user") User user, Model model, HttpServletRequest request) {
-        User user1 = (User) request.getSession().getAttribute("user");
-        if (user1 == null || !user1.getUserRole().equalsIgnoreCase("teacher"))
-            return "redirect:/";
+//        User user1 = (User) request.getSession().getAttribute("user");
+//        if (user1 == null || !user1.getUserRole().equalsIgnoreCase("teacher"))
+//            return "redirect:/";
         return "teacher/teacher";
     }
 
     @RequestMapping("/students")
     public String studentPanel(@ModelAttribute("user") User user, HttpServletRequest request) {
-        User user1 = (User) request.getSession().getAttribute("user");
-        if (user1 == null || !user1.getUserRole().equalsIgnoreCase("student"))
-            return "redirect:/";
+//        User user1 = (User) request.getSession().getAttribute("user");
+//        if (user1 == null || !user1.getUserRole().equalsIgnoreCase("student"))
+//            return "redirect:/";
         return "student/student";
     }
 
     //  Lesson taken resource
     @RequestMapping("/programs")
     public String getAllLessonTaken(HttpServletRequest request, Model model) {
-        User user = (User) request.getSession().getAttribute("user");
-        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
-            return "redirect:/";
+//        User user = (User) request.getSession().getAttribute("user");
+//        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
+//            return "redirect:/";
         List<LessonTaken> lessonTakes = lessonTakenService.findAllLessonTaken();
         List<Student> students = studentService.findAllStudents();
         List<Subject> subjects = subjectService.finAllSubjects();
@@ -128,14 +128,14 @@ public class ApplicationController {
             model.addAttribute("departments", departments);
             model.addAttribute("studentInfos", studentInfos);
         }
-        return "admin/panel/panelLessonTaken";
+        return "/admin/panel/panelPrograms";
     }
 
     @RequestMapping("/programs/add")
     public String addNewLessonTaken(Model model, HttpServletRequest request) {
-        User user = (User) request.getSession().getAttribute("user");
-        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
-            return "redirect:/";
+//        User user = (User) request.getSession().getAttribute("user");
+//        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
+//            return "redirect:/";
         List<Subject> subjects = subjectService.finAllSubjects();
         List<Student> students = studentService.findAllStudents();
 
@@ -163,28 +163,28 @@ public class ApplicationController {
             lessonTakenService.addLessonTaken(lessonTaken);
             return "redirect:/programs";
         }
-        return "admin/add/addNewLessonTaken";
+        return "admin/add/addNewPrograms";
     }
 
     @RequestMapping("/programs/edit/{id}")
     public String updateLessonTaken(@PathVariable String id, @ModelAttribute("lessonTaken") LessonTaken lessonTaken, HttpServletRequest request, Model model) {
-        User user = (User) request.getSession().getAttribute("user");
-        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
-            return "redirect:/";
+//        User user = (User) request.getSession().getAttribute("user");
+//        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
+//            return "redirect:/";
         List<Student> students = studentService.findAllStudents();
         List<Subject> subjects = subjectService.finAllSubjects();
         lessonTaken = lessonTakenService.findLessonTakenById(id);
         model.addAttribute("programs", lessonTaken);
         model.addAttribute("students", students);
         model.addAttribute("subjects", subjects);
-        return "admin/update/updateLessonTaken";
+        return "updatePrograms";
     }
 
     @RequestMapping("/programs/update/{id}")
     public String update(@PathVariable String id, HttpServletRequest request) {
-        User user = (User) request.getSession().getAttribute("user");
-        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
-            return "redirect:/";
+//        User user = (User) request.getSession().getAttribute("user");
+//        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
+//            return "redirect:/";
 
         String subjectId = request.getParameter("subject");
         String studentId = request.getParameter("student");
@@ -207,7 +207,7 @@ public class ApplicationController {
             return "redirect:/programs";
 //
         }
-        return "admin/update/updateLessonTaken";
+        return "updatePrograms";
     }
 
     @RequestMapping("/programs/delete/{id}")
@@ -227,15 +227,40 @@ public class ApplicationController {
         return "admin/panel/panelDepartment";
     }
 
+    @RequestMapping("/student/subject")
+    public String studentSubject(Model model) {
+        List<Subject> subjects = subjectService.finAllSubjects();
+        model.addAttribute("subjects", subjects);
+        return "student/subject";
+    }
+
+    @RequestMapping("/department/delete/{id}")
+    public String deleteDepartment(@PathVariable String id) {
+
+        try {
+            departmentService.deleteDepartment(id);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return "redirect:/department";
+    }
+
+    @RequestMapping("/student/score")
+    public String scores() {
+        return "student/scores";
+    }
+
     @RequestMapping("/department/add")
     public String addNewDepartment(@ModelAttribute("department") Department department, HttpServletRequest request) {
-        User user = (User) request.getSession().getAttribute("user");
-        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
-            return "redirect:/";
+//        User user = (User) request.getSession().getAttribute("user");
+//        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
+//            return "redirect:/";
+
         long count = departmentService.findAllDepartment().size();
         String id = "CUM" + (++count);
         if (department.getDepartmentName() != null) {
             Department newDepartment = new Department(id, department.getDepartmentName());
+            System.out.println(newDepartment.toString());
             departmentService.addDepartment(newDepartment);
             return "redirect:/department";
         }
@@ -243,20 +268,20 @@ public class ApplicationController {
     }
 
     @RequestMapping("/department/edit/{id}")
-    public String updateDepartment(@PathVariable String id, @ModelAttribute("department") Department Department, HttpServletRequest request, Model model) {
-        User user = (User) request.getSession().getAttribute("user");
-        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
+    public String updateDepartment(@PathVariable String id, HttpServletRequest request, Model model) {
+//        User user = (User) request.getSession().getAttribute("user");
+//        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
 //            return "redirect:/";
-            Department = departmentService.findDepartmentById(id);
-        model.addAttribute("department", Department);
+        Department department = departmentService.findDepartmentById(id);
+        model.addAttribute("department", department);
         return "admin/update/updateDepartment";
     }
 
     @RequestMapping("/department/update/{id}")
     public String update(@PathVariable String id, @ModelAttribute("department") @Valid Department department, HttpServletRequest request) {
-        User user = (User) request.getSession().getAttribute("user");
-        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
-            return "redirect:/";
+//        User user = (User) request.getSession().getAttribute("user");
+//        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
+//            return "redirect:/";
         Department updateDepartment = departmentService.findDepartmentById(id);
         if (department.getDepartmentName() != null) {
             updateDepartment.setId(id);
@@ -281,27 +306,90 @@ public class ApplicationController {
 
 
     @RequestMapping("/student/add")
-    public String addNewStudent(@ModelAttribute("student") Student student, Model model, HttpServletRequest request) {
-        User user = (User) request.getSession().getAttribute("user");
-        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
-            return "redirect:/";
+    public String addNewStudent(@ModelAttribute("student") Student student, Model model, HttpServletRequest request, HttpServletResponse response) {
+//        User user = (User) request.getSession().getAttribute("user");
+//        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
+//            return "redirect:/";
+        String cookId=null, cookName=null, cookSurname=null, cookTc=null, cookPhone=null, cookEmail=null, cookAddress=null;
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null)
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("id"))
+                    cookId = cookie.getValue();
+                if (cookie.getName().equals("name"))
+                    cookName = cookie.getValue();
+                if (cookie.getName().equals("surname"))
+                    cookSurname = cookie.getValue();
+                if (cookie.getName().equals("tc"))
+                    cookTc = cookie.getValue();
+                if (cookie.getName().equals("phone"))
+                    cookPhone = cookie.getValue();
+                if (cookie.getName().equals("email"))
+                    cookEmail = cookie.getValue();
+                if (cookie.getName().equals("address"))
+                    cookAddress = cookie.getValue();
+            }
+        if(cookId!=null &&cookName!=null&& cookSurname!=null&&cookTc!=null&&cookPhone!=null && cookEmail!=null && cookAddress!=null){
+            Student student1=new Student(cookId,cookName,cookSurname,cookTc,cookPhone,cookEmail,cookAddress,"not Available");
+            model.addAttribute("student",student1);
+        }
+
         List<Department> departments = departmentService.findAllDepartment();
+
         model.addAttribute("departments", departments);
         LocalDate enrolDate = null;
         if (request.getParameter("enrolDate") != null)
             enrolDate = LocalDate.parse(request.getParameter("enrolDate"));
         String departmentId = request.getParameter("department");
-
         long count = studentService.findAllStudents().size();
         String studentId = "STUD" + (++count);
 
         if (student.getStudentName() != null && student.getStudentSurname() != null && enrolDate != null
                 && student.getStudentTcNo() != null && student.getStudentPhoneNo() != null && departmentId != null
-                && student.getStudentEmail() != null && student.getStudentAddress() != null && student.getStudentImageURL() != null) {
+                && student.getStudentEmail() != null && student.getStudentAddress() != null) {
 
-            Student newStudent = new Student(studentId, student.getStudentName(), student.getStudentSurname(),
-                    student.getStudentTcNo(), student.getStudentPhoneNo(), student.getStudentEmail(),
-                    student.getStudentAddress(), student.getStudentImageURL());
+            Student newStudent = new Student(studentId, student.getStudentName(), student.getStudentSurname(), student.getStudentTcNo(), student.getStudentPhoneNo(), student.getStudentEmail(),
+                    student.getStudentAddress(), "notAvailable");
+
+            if (cookies != null)
+                for (Cookie cookie : cookies) {
+                    if (!cookie.getName().equals("id")) {
+                        Cookie newCookie = new Cookie("id", studentId);
+                        newCookie.setMaxAge(60 * 60);
+                        response.addCookie(newCookie);
+                    }
+                    if (!cookie.getName().equals("name")) {
+                        Cookie newCookie = new Cookie("name", student.getStudentName());
+                        newCookie.setMaxAge(60 * 60);
+                        response.addCookie(newCookie);
+                    }
+
+                    if (!cookie.getName().equals("surname")) {
+                        Cookie newCookie = new Cookie("surname", student.getStudentSurname());
+                        newCookie.setMaxAge(60 * 60);
+                        response.addCookie(newCookie);
+                    }
+                    if (!cookie.getName().equals("tc")) {
+                        Cookie newCookie = new Cookie("tc", student.getStudentTcNo());
+                        newCookie.setMaxAge(60 * 60);
+                        response.addCookie(newCookie);
+                    }
+                    if (!cookie.getName().equals("phone")) {
+                        Cookie newCookie = new Cookie("phone", student.getStudentPhoneNo());
+                        newCookie.setMaxAge(60 * 60);
+                        response.addCookie(newCookie);
+                    }
+                    if (!cookie.getName().equals("email")) {
+                        Cookie newCookie = new Cookie("email", student.getStudentEmail());
+                        newCookie.setMaxAge(60 * 60);
+                        response.addCookie(newCookie);
+                    }
+                    if (!cookie.getName().equals("address")) {
+                        Cookie newCookie = new Cookie("address", student.getStudentAddress());
+                        newCookie.setMaxAge(60 * 60);
+                        response.addCookie(newCookie);
+                    }
+                }
             StudentInfo studentInfo = new StudentInfo();
             studentInfo.setDepartment(departmentService.findDepartmentById(departmentId));
             studentInfo.setId(studentId);
@@ -320,9 +408,9 @@ public class ApplicationController {
 
     @RequestMapping("/student/edit/{id}")
     public String editStudent(@PathVariable String id, @ModelAttribute("student") Student student, HttpServletRequest request, Model model) {
-        User user = (User) request.getSession().getAttribute("user");
-        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
-            return "redirect:/";
+//        User user = (User) request.getSession().getAttribute("user");
+//        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
+//            return "redirect:/";
         List<Department> departments = departmentService.findAllDepartment();
         student = studentService.findStudentById(id);
         StudentInfo studentInfo = studentInfoService.findStudentInfoById(id);
@@ -334,18 +422,20 @@ public class ApplicationController {
 
     @RequestMapping("/student/update/{id}")
     public String updateStudent(@PathVariable String id, @ModelAttribute("student") @Valid Student student, HttpServletRequest request) {
-        User user = (User) request.getSession().getAttribute("user");
-        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
-            return "redirect:/";
+//        User user = (User) request.getSession().getAttribute("user");
+//        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
+//            return "redirect:/";
+        String departmentId = request.getParameter("department");
         Student updateStudent = studentService.findStudentById(id);
         StudentInfo studentInfo = studentInfoService.findStudentInfoById(id);
         LocalDate enrolDate = null;
         if (request.getParameter("enrolDate") != null)
             enrolDate = LocalDate.parse(request.getParameter("enrolDate"));
-        String departmentId = request.getParameter("department");
+        System.out.println("dep" + departmentId + " Date " + enrolDate + " name " + student.getStudentName() + " surname " + student.getStudentSurname());
         if (student.getStudentName() != null && student.getStudentSurname() != null && enrolDate != null
                 && student.getStudentTcNo() != null && student.getStudentPhoneNo() != null && departmentId != null
-                && student.getStudentEmail() != null && student.getStudentAddress() != null && student.getStudentImageURL() != null) {
+                && student.getStudentEmail() != null && student.getStudentAddress() != null) {
+            System.out.println("information please");
             updateStudent.setStudentId(id);
             updateStudent.setStudentName(student.getStudentName());
             updateStudent.setStudentSurname(student.getStudentSurname());
@@ -353,7 +443,7 @@ public class ApplicationController {
             updateStudent.setStudentPhoneNo(student.getStudentPhoneNo());
             updateStudent.setStudentEmail(student.getStudentEmail());
             updateStudent.setStudentAddress(student.getStudentAddress());
-            updateStudent.setStudentImageURL(student.getStudentImageURL());
+            updateStudent.setStudentImageURL("notAvailable");
             studentService.updateStudent(updateStudent);
 
             studentInfo.setId(id);
@@ -362,6 +452,8 @@ public class ApplicationController {
             studentInfoService.updateStudentInfo(studentInfo);
 
             return "redirect:/student";
+        } else {
+
         }
         return "admin/update/updateStudent";
     }
@@ -378,11 +470,12 @@ public class ApplicationController {
         return "admin/panel/panelTeacher";
     }
 
+
     @RequestMapping("/teacher/add")
     public String addNewTeacher(@ModelAttribute("teacher") @Valid Teacher teacher, Model model, HttpServletRequest request) {
-        User user = (User) request.getSession().getAttribute("user");
-        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
-            return "redirect:/";
+//        User user = (User) request.getSession().getAttribute("user");
+//        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
+//            return "redirect:/";
         List<Department> departments = departmentService.findAllDepartment();
         model.addAttribute("departments", departments);
         LocalDate enrolDate = null;
@@ -410,11 +503,21 @@ public class ApplicationController {
         return "admin/add/addNewTeacher";
     }
 
+    @RequestMapping("/student/delete/{id}")
+    public String deleteTeacher(@PathVariable String id) {
+        try {
+            studentService.deleteStudent(id);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return "redirect:/student";
+    }
+
     @RequestMapping("/teacher/edit/{id}")
     public String editTeacher(@PathVariable String id, @ModelAttribute("teacher") Teacher teacher, HttpServletRequest request, Model model) {
-        User user = (User) request.getSession().getAttribute("user");
-        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
-            return "redirect:/";
+//        User user = (User) request.getSession().getAttribute("user");
+//        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
+//            return "redirect:/";
         TeacherInfo teacherInfo = teacherInfoService.findTeacherInfoById(id);
         List<Department> departments = departmentService.findAllDepartment();
         teacher = teacherService.findTeacherById(id);
@@ -426,9 +529,9 @@ public class ApplicationController {
 
     @RequestMapping("/teacher/update/{id}")
     public String updateTeacher(@PathVariable String id, @ModelAttribute("teacher") @Valid Teacher teacher, HttpServletRequest request) {
-        User user = (User) request.getSession().getAttribute("user");
-        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
-            return "redirect:/";
+//        User user = (User) request.getSession().getAttribute("user");
+//        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
+//            return "redirect:/";
         Teacher updateTeacher = teacherService.findTeacherById(id);
         TeacherInfo teacherInfo = teacherInfoService.findTeacherInfoById(teacher.getId());
         LocalDate enrolDate = null;
@@ -461,28 +564,28 @@ public class ApplicationController {
 
     @RequestMapping("/subject")
     public String getAllSubject(HttpServletRequest request, Model model) {
-        User user = (User) request.getSession().getAttribute("user");
-        if (user != null && (user.getUserRole().equalsIgnoreCase("admin") || user.getUserRole().equalsIgnoreCase("student"))) {
-            List<Subject> subjects = subjectService.finAllSubjects();
-            model.addAttribute("subjects", subjects);
-            if (user.getUserRole().equalsIgnoreCase("student")) {
-                List<LessonTaken> lessonTakes = lessonTakenService
-                        .findAllLessonTakenByStudentId(studentService.findStudentByStudentEmail(user.getUserEmail()).getStudentId());
-                model.addAttribute("lessonTakes", lessonTakes);
-                return "student/subject";
-            }
-            return "admin/panel/panelSubject";
-        } else
-            return "redirect:/";
-
+//        User user = (User) request.getSession().getAttribute("user");
+//        if (user != null && (user.getUserRole().equalsIgnoreCase("admin") || user.getUserRole().equalsIgnoreCase("student"))) {
+        List<Subject> subjects = subjectService.finAllSubjects();
+        model.addAttribute("subjects", subjects);
+//            if (user.getUserRole().equalsIgnoreCase("student")) {
+//                List<LessonTaken> lessonTakes = lessonTakenService
+//                        .findAllLessonTakenByStudentId(studentService.findStudentByStudentEmail(user.getUserEmail()).getStudentId());
+//                model.addAttribute("lessonTakes", lessonTakes);
+//                return "student/subject";
+//            }
+        return "admin/panel/panelSubject";
+//        } else
+//            return "redirect:/";
+//
     }
 
 
     @RequestMapping("/subject/add")
     public String addNewSubject(@ModelAttribute("subject") Subject subject, HttpServletRequest request) {
-        User user1 = (User) request.getSession().getAttribute("user");
-        if (user1 == null || !user1.getUserRole().equalsIgnoreCase("admin"))
-            return "redirect:/";
+//        User user1 = (User) request.getSession().getAttribute("user");
+//        if (user1 == null || !user1.getUserRole().equalsIgnoreCase("admin"))
+//            return "redirect:/";
         long count = subjectService.finAllSubjects().size();
         String id = "SUB" + (++count);
         if (subject.getSubjectName() != null && subject.getSubjectCredit() != null) {
@@ -496,9 +599,9 @@ public class ApplicationController {
 
     @RequestMapping("/subject/edit/{id}")
     public String editSubject(@PathVariable String id, @ModelAttribute("subject") Subject subject, HttpServletRequest request, Model model) {
-        User user = (User) request.getSession().getAttribute("user");
-        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
-            return "redirect:/";
+//        User user = (User) request.getSession().getAttribute("user");
+//        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
+//            return "redirect:/";
         subject = subjectService.findSubjectById(id);
         model.addAttribute("subject", subject);
         return "admin/update/updateSubject";
@@ -506,9 +609,9 @@ public class ApplicationController {
 
     @RequestMapping("/subject/update/{id}")
     public String updateSubject(@PathVariable String id, @ModelAttribute("subject") @Valid Subject subject, HttpServletRequest request) {
-        User user = (User) request.getSession().getAttribute("user");
-        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
-            return "redirect:/";
+//        User user = (User) request.getSession().getAttribute("user");
+//        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
+//            return "redirect:/";
         Subject updatedSubject = subjectService.findSubjectById(id);
         if (subject.getId() != null && subject.getSubjectName() != null && subject.getSubjectCredit() != null) {
             updatedSubject.setId(id);
@@ -519,6 +622,17 @@ public class ApplicationController {
         }
         return "admin/update/updateSubject";
     }
+
+    @RequestMapping("/subject/delete/{id}")
+    public String deleteSubject(@PathVariable String id) {
+        try {
+            subjectService.deleteSubject(id);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return "redirect:/subject";
+    }
+
 
     @RequestMapping("/subject/teachBy")
     public String subjectTeachBy(Model model, HttpServletRequest request) {
@@ -574,11 +688,10 @@ public class ApplicationController {
 
     @RequestMapping("/teacher/subjects")
     public String teacherSubject(Model model, HttpServletRequest request) {
-        User user = (User) request.getSession().getAttribute("user");
-        if (user == null || !user.getUserRole().equalsIgnoreCase("teacher"))
-            return "redirect:/";
-        Teacher teacher = teacherService.findTeacherByEmail(user.getUserEmail());
-        List<SubjectTeach> subjectTeaches = subjectTeachService.findAllSubjectTeachByTeacherId(teacher.getId());
+//        User user = (User) request.getSession().getAttribute("user");
+//        if (user == null || !user.getUserRole().equalsIgnoreCase("teacher"))
+//            return "redirect:/";
+        List<SubjectTeach> subjectTeaches = subjectTeachService.finAllSubjectTeachs();
         List<Subject> subjects = subjectService.finAllSubjects();
         model.addAttribute("subjects", subjects);
         model.addAttribute("subjectTeaches", subjectTeaches);
@@ -587,9 +700,9 @@ public class ApplicationController {
 
     @RequestMapping("/user")
     public String getAllUser(HttpServletRequest request, Model model) {
-        User user1 = (User) request.getSession().getAttribute("user");
-        if (user1 == null || !user1.getUserRole().equalsIgnoreCase("admin"))
-            return "redirect:/";
+//        User user1 = (User) request.getSession().getAttribute("user");
+//        if (user1 == null || !user1.getUserRole().equalsIgnoreCase("admin"))
+//            return "redirect:/";
         List<User> users = userService.finAllUsers();
         if (users != null)
             model.addAttribute("users", users);
@@ -598,9 +711,9 @@ public class ApplicationController {
 
     @RequestMapping("/user/add")
     public String addNewUser(@ModelAttribute("user") User user, HttpServletRequest request) {
-        User user1 = (User) request.getSession().getAttribute("user");
-        if (user1 == null || !user1.getUserRole().equalsIgnoreCase("admin"))
-            return "redirect:/";
+//        User user1 = (User) request.getSession().getAttribute("user");
+//        if (user1 == null || !user1.getUserRole().equalsIgnoreCase("admin"))
+//            return "redirect:/";
         String userRole = request.getParameter("userRole");
         if (user.getUserFullName() != null && user.getUserPassword() != null
                 && user.getUserEmail() != null && userRole != null) {
@@ -613,11 +726,11 @@ public class ApplicationController {
         return "admin/add/addNewUser";
     }
 
-    @RequestMapping("/user/update/{id}")
+    @RequestMapping("/user/edit/{id}")
     public String updateUser(@PathVariable String id, @ModelAttribute("user") User user, HttpServletRequest request, Model model) {
-        User user1 = (User) request.getSession().getAttribute("user");
-        if (user1 == null || !user1.getUserRole().equalsIgnoreCase("admin"))
-            return "redirect:/";
+//        User user1 = (User) request.getSession().getAttribute("user");
+//        if (user1 == null || !user1.getUserRole().equalsIgnoreCase("admin"))
+//            return "redirect:/";
         user = userService.findUserById(id);
         model.addAttribute("user", user);
         model.addAttribute("admin", "Admin");
@@ -626,11 +739,11 @@ public class ApplicationController {
         return "admin/update/updateUser";
     }
 
-    @RequestMapping("/user/{id}")
+    @RequestMapping("/user/update/{id}")
     public String update(@PathVariable String id, @ModelAttribute("user") @Valid User user, HttpServletRequest request) {
-        User user1 = (User) request.getSession().getAttribute("user");
-        if (user1 == null || !user1.getUserRole().equalsIgnoreCase("admin"))
-            return "redirect:/";
+//        User user1 = (User) request.getSession().getAttribute("user");
+//        if (user1 == null || !user1.getUserRole().equalsIgnoreCase("admin"))
+//            return "redirect:/";
         User updateUser = userService.findUserById(id);
         if (user.getId() != null && user.getUserFullName() != null && user.getUserPassword() != null
                 && user.getUserEmail() != null && user.getUserRole() != null) {

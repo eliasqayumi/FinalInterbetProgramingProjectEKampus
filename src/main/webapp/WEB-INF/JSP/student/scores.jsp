@@ -4,20 +4,12 @@
 <html>
 <head>
     <title>Score</title>
-    <link rel="stylesheet" href="<c:url value="/panelExa.css"/>">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="<c:url value="/teacjerSubject.css"/>">
 </head>
 
 <body>
 <header>
     <div class="navbar">
-        <a href="/students">
-            <i class="fas fa-university"></i>
-        </a>
         <a id="logout" href="/">Log out</a>
     </div>
 </header>
