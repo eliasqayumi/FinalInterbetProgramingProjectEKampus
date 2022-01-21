@@ -3,54 +3,71 @@ body {
 }
 
 .container {
-    width: 90%;
+    width: 100%;
     margin: 50px auto;
     padding: 1em;
-    border-radius: 5px;
-    box-shadow: 0 0 0.1em 0.1em white;
 }
 
 .pack {
     padding: 1em;
     border-radius: 8px;
-    box-shadow: 0 0 0.1em purple;
 }
 
 table {
     border-radius: 10px;
     width: 100%;
-    box-shadow: 0 0 0.1em 0em royalblue;
     padding: 1em;
     font-size: 1em;
 }
 
 th {
-    font-size: 1.3em;
+    font-size: 1.2em;
     text-align: left;
-    padding: 1em;
+    padding: .4em;
+    background: darkslateblue;
+    color: #f2f2f2;
 }
 
 td {
     padding: 1em;
+    margin: 1em;
 }
 
 tr {
-    box-shadow: 0 0.01em 0 0 purple;
-    border-radius: 10px;
+    box-shadow: 0 0.01em 0.1em 0 white;
+    padding: 1em;
+    color: #f2f2f2;
 }
 
-tr td a {
+#update {
     color: white;
     text-decoration: none;
-    box-shadow: 0 0.05em 0.05em 0 royalblue;
+    box-shadow: 0 0 0.1em 0.1em darkgreen;
     border-radius: 5px;
     padding: .6em 1.5em;
+    font-size: 13px;
     transition: 300ms;
 }
 
-tr td a:hover {
-    box-shadow: 0 0em 0.2em 0 white;
+#delete {
+    color: white;
+    margin-left: 30px;
+    text-decoration: none;
+    box-shadow: 0 0 0.1em 0.1em darkred;
+    border-radius: 5px;
+    padding: .6em 1.5em;
+    font-size: 13px;
+    transition: 300ms;
+}
 
+#update:hover {
+    box-shadow: none;
+    background: darkgreen;
+}
+
+#delete:hover {
+    box-shadow: none;
+    background: darkred;
 }
 
 header {
@@ -72,28 +89,31 @@ header {
 }
 
 .navbar #logout {
-    position: absolute;
-    right: 30px;
     top: 30px;
-    box-shadow: 0 0.1em 0.1em white;
-    padding: 0.5em 1em;
-    border-radius: 5px;
-    transition: 300ms;
+    position: absolute;
+    padding: 2em 1em;
+    right: 30px;
+    color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 0.2em 0em white;
+}
+table tr th:last-child{
+    width: 300px;
 }
 
 .navbar #logout:hover {
     box-shadow: 0 0em 0.1em 0.1em white;
-
 }
 
 #add {
+    position: fixed;
+    text-align: center;
+    width: 90%;
+    margin-left: 20px;
+    padding: 1em;
     text-decoration: none;
     color: #f2f2f2;
-    position: absolute;
-    right: 8.5%;
-    top: 10%;
     box-shadow: 0 0 0.1em 0.1em royalblue;
-    padding: 0.5em 1em;
     border-radius: 5px;
     transition: 300ms;
 }

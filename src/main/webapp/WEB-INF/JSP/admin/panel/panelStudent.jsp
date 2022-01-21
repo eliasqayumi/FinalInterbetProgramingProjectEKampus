@@ -4,12 +4,7 @@
 <html>
 <head>
     <title>Student Panel</title>
-    <link rel="stylesheet" href="<c:url value="/panelStudent.css"/>">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="<c:url value="/students.css"/>">
 </head>
 <body>
 <header>
@@ -21,7 +16,6 @@
     </div>
 </header>
 <div class="package">
-    <a id="add" href="/student/add">Add new Student</a>
     <div class="container">
         <div class="pack">
             <table>
@@ -54,11 +48,12 @@
                                 <td>${studentInfo.enrolDate}</td>
                             </c:if>
                         </c:forEach>
-                        <td><a href="/student/edit/${student.studentId}" class="replay">Update</a></td>
-                            <%--                    <a href="/teacher/delete/${teacher.id}" class="replay">Delete</a>--%>
+                        <td><a id="update" href="/student/edit/${student.studentId}" class="replay">Update</a>
+                            <a id="delete" href="/student/delete/${student.studentId}" class="replay">Delete</a></td>
                     </tr>
                 </c:forEach>
             </table>
+            <a id="add" href="/student/add">Add new Student</a>
         </div>
     </div>
 </div>

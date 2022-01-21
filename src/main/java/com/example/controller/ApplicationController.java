@@ -17,7 +17,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Controller
-
 public class ApplicationController {
     private DepartmentService departmentService;
     private LessonTakenService lessonTakenService;
@@ -29,9 +28,16 @@ public class ApplicationController {
     private TeacherInfoService teacherInfoService;
     private SubjectTeachService subjectTeachService;
 
-
-    public ApplicationController(UserService userService) {
+    public ApplicationController(DepartmentService departmentService, LessonTakenService lessonTakenService, StudentService studentService, SubjectService subjectService, StudentInfoService studentInfoService, UserService userService, TeacherService teacherService, TeacherInfoService teacherInfoService, SubjectTeachService subjectTeachService) {
+        this.departmentService = departmentService;
+        this.lessonTakenService = lessonTakenService;
+        this.studentService = studentService;
+        this.subjectService = subjectService;
+        this.studentInfoService = studentInfoService;
         this.userService = userService;
+        this.teacherService = teacherService;
+        this.teacherInfoService = teacherInfoService;
+        this.subjectTeachService = subjectTeachService;
     }
 
     @RequestMapping("/")
@@ -213,12 +219,11 @@ public class ApplicationController {
     //    Department resource
     @RequestMapping("/department")
     public String getAllDepartment(HttpServletRequest request, Model model) {
-        User user = (User) request.getSession().getAttribute("user");
-        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
-            return "redirect:/";
+//        User user = (User) request.getSession().getAttribute("user");
+//        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
+//            return "redirect:/";
         List<Department> departments = departmentService.findAllDepartment();
-        if (departments != null)
-            model.addAttribute("departments", departments);
+        model.addAttribute("departments", departments);
         return "admin/panel/panelDepartment";
     }
 
@@ -264,19 +269,13 @@ public class ApplicationController {
 
     @RequestMapping("/student")
     public String getAllStudent(HttpServletRequest request, Model model) {
-        User user = (User) request.getSession().getAttribute("user");
-        if (user == null || user.getUserRole().equalsIgnoreCase("student"))
-            return "redirect:/";
+//        User user = (User) request.getSession().getAttribute("user");
+//        if (user == null || user.getUserRole().equalsIgnoreCase("student"))
+//            return "redirect:/";
         List<Student> students = studentService.findAllStudents();
         List<StudentInfo> studentInfos = studentInfoService.findAllStudentInfo();
-        if (students != null)
-            model.addAttribute("students", students);
-        if (studentInfos != null)
-            model.addAttribute("studentInfos", studentInfos);
-
-        if (user.getUserRole().equalsIgnoreCase("teacher"))
-            return "teacher/studentPanel";
-
+        model.addAttribute("students", students);
+        model.addAttribute("studentInfos", studentInfos);
         return "admin/panel/panelStudent";
     }
 
@@ -369,15 +368,13 @@ public class ApplicationController {
 
     @RequestMapping("/teacher")
     public String teacherHome(Model model, HttpServletRequest request) {
-        User user = (User) request.getSession().getAttribute("user");
-        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
-            return "redirect:/";
+//        User user = (User) request.getSession().getAttribute("user");
+//        if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
+//            return "redirect:/";
         List<Teacher> allTeachers = teacherService.finAllTeachers();
         List<TeacherInfo> teacherInfos = teacherInfoService.finAllTeacherInfos();
-        if (allTeachers != null)
-            model.addAttribute("allTeachers", allTeachers);
-        if (teacherInfos != null)
-            model.addAttribute("teacherInfos", teacherInfos);
+        model.addAttribute("allTeachers", allTeachers);
+        model.addAttribute("teacherInfos", teacherInfos);
         return "admin/panel/panelTeacher";
     }
 

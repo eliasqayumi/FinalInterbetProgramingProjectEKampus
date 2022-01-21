@@ -4,12 +4,7 @@
 <html>
 <head>
     <title>Teacher Panel</title>
-    <link rel="stylesheet" href="<c:url value="/viewPanel.css"/>">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="<c:url value="/teachers.css"/>">
 </head>
 <body>
 <header>
@@ -21,7 +16,6 @@
     </div>
 </header>
 <div class="package">
-    <a id="add" href="/teacher/add">Add new Teacher</a>
     <div class="container">
         <div class="pack">
             <table>
@@ -52,10 +46,12 @@
                             <td>${studentInfo.inroleDate}</td>
                             </c:if>
                         </c:forEach>
-                        <td><a href="/teacher/edit/${teacher.id}" class="replay">Update</a></td>
+                        <td><a id="update" href="/teacher/edit/${teacher.id}" class="replay">Update</a>
+                        <a id="delete" href="/teacher/delete/${teacher.id}" class="replay">Delete</a></td>
                     </tr>
                 </c:forEach>
             </table>
+            <a id="add" href="/teacher/add">Add new Teacher</a>
         </div>
     </div>
 </div>

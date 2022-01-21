@@ -7,16 +7,12 @@
 <html lang="l" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="/adminStyle.css">
+    <link rel="stylesheet" href="/admin.css">
     <title>Admin</title>
 </head>
 <body>
 <header>
     <div class="navbar">
-        <a href="/admins">
-            <i class="fas fa-university"></i>
-        </a>
-        <p>Cumhuriyet University</p>
         <a id="logout" href="/">Log out</a>
     </div>
 </header>
@@ -30,7 +26,7 @@
         <div class="panel-column">
             <li><a href="/user"><i class='fas fa-users'></i><span>Users</span></a></li>
             <li><a href="/department"><i class='fas fa-building'></i><span>Departments</span></a></li>
-            <li><a href="/lessonTaken"><i class='fas fa-users'></i><span>Lesson Takers</span></a></li>
+            <li><a href="/programs"><i class='fas fa-users'></i><span>Programs</span></a></li>
         </div>
     </ul>
 </div>

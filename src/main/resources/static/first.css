@@ -21,11 +21,12 @@ form{
     padding: 0 1em 1em 1em;
 }
 img{
-    margin: auto;
-    width: 150px;
-    height: 150px;
-
+    margin: 100px;
+    width: 45%;
+    border-radius: 5px;
+    box-shadow:  0 0 1em .3em white;
 }
+
 .inputs{
     padding: .6em;
     margin: 1em;

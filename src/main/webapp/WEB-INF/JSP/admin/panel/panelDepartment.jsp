@@ -4,12 +4,8 @@
 <html>
 <head>
     <title>Department Panel</title>
-    <link rel="stylesheet" href="<c:url value="/viewPanel.css"/>">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="<c:url value="/viewAll.css"/>">
+
 </head>
 <body>
 <header>
@@ -21,7 +17,6 @@
     </div>
 </header>
 <div class="package">
-    <a id="add" href="/department/add">Add new Department</a>
     <div class="container">
         <div class="pack">
             <table>
@@ -34,10 +29,12 @@
                     <tr>
                         <td>${department.id}</td>
                         <td>${department.departmentName}</td>
-                        <td><a href="/department/edit/${department.id}" class="replay">Update</a></td>
+                        <td><a id="update" href="/department/edit/${department.id}" class="replay">Update</a>
+                        <a  id="delete" href="/department/edit/${department.id}" class="replay">Delete</a></td>
                     </tr>
                 </c:forEach>
             </table>
+            <a id="add" href="/department/add">Add new Department</a>
         </div>
     </div>
 </div>

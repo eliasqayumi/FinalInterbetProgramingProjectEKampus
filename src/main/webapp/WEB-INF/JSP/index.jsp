@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="image">
-    <img src="galaxy.jpeg" alt="value not found">
+    <img src="education.jpeg" alt="value not found">
 </div>
 <div class="container">
 
