@@ -110,7 +110,7 @@ public class ApplicationController {
     }
 
     //  Lesson taken resource
-    @RequestMapping("/lessonTaken")
+    @RequestMapping("/programs")
     public String getAllLessonTaken(HttpServletRequest request, Model model) {
         User user = (User) request.getSession().getAttribute("user");
         if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
@@ -131,7 +131,7 @@ public class ApplicationController {
         return "admin/panel/panelLessonTaken";
     }
 
-    @RequestMapping("/lessonTaken/add")
+    @RequestMapping("/programs/add")
     public String addNewLessonTaken(Model model, HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("user");
         if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
@@ -161,12 +161,12 @@ public class ApplicationController {
             lessonTaken.setStartDate(startDate);
             lessonTaken.setFinishDate(finishDate);
             lessonTakenService.addLessonTaken(lessonTaken);
-            return "redirect:/lessonTaken";
+            return "redirect:/programs";
         }
         return "admin/add/addNewLessonTaken";
     }
 
-    @RequestMapping("/lessonTaken/edit/{id}")
+    @RequestMapping("/programs/edit/{id}")
     public String updateLessonTaken(@PathVariable String id, @ModelAttribute("lessonTaken") LessonTaken lessonTaken, HttpServletRequest request, Model model) {
         User user = (User) request.getSession().getAttribute("user");
         if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
@@ -174,13 +174,13 @@ public class ApplicationController {
         List<Student> students = studentService.findAllStudents();
         List<Subject> subjects = subjectService.finAllSubjects();
         lessonTaken = lessonTakenService.findLessonTakenById(id);
-        model.addAttribute("lessonTaken", lessonTaken);
+        model.addAttribute("programs", lessonTaken);
         model.addAttribute("students", students);
         model.addAttribute("subjects", subjects);
         return "admin/update/updateLessonTaken";
     }
 
-    @RequestMapping("/lessonTaken/update/{id}")
+    @RequestMapping("/programs/update/{id}")
     public String update(@PathVariable String id, HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("user");
         if (user == null || !user.getUserRole().equalsIgnoreCase("admin"))
@@ -204,16 +204,16 @@ public class ApplicationController {
             updateLessonTaken.setStartDate(startDate);
             updateLessonTaken.setFinishDate(finishDate);
             lessonTakenService.updateLessonTaken(updateLessonTaken);
-            return "redirect:/lessonTaken";
+            return "redirect:/programs";
 //
         }
         return "admin/update/updateLessonTaken";
     }
 
-    @RequestMapping("/lessonTaken/delete/{id}")
+    @RequestMapping("/programs/delete/{id}")
     public String deleteLessonTaken(@PathVariable String id, HttpServletRequest request) {
         lessonTakenService.deleteLessonTakenId(id);
-        return "redirect:/lessonTaken";
+        return "redirect:/programs";
     }
 
     //    Department resource
